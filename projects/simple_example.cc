@@ -82,26 +82,20 @@ void runWorkload(Options& op, WriteOptions& write_op, ReadOptions& read_op) {
     workload_file.open("workload.txt");
     assert(workload_file);
 
-    // // Clearing the system cache
-    // std::cout << "Clearing system cache ..." << std::endl;
-    // int clean_flag = system("sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'");
-    // if (clean_flag) {
-    //     std::cerr << "Cannot clean the system cache" << std::endl;
-    //     exit(0);
-    // }
-
     Iterator* it = db->NewIterator(read_op); // for range reads
     uint64_t counter = 0; // for progress bar
 
-    while (!workload_file.eof()) {
+    while (std::getline(workload_file,line)) {
         char instruction;
+        std::istringstream iss(line);
+        iss >> instruction;
         long key, start_key, end_key;
         std::string value;
-        workload_file >> instruction;
+
         switch (instruction)
         {
         case 'I': // insert
-            workload_file >> key >> value;
+            iss >> key >> value;
             // Put key-value
             s = db->Put(write_op, std::to_string(key), value);
             if (!s.ok()) std::cerr << s.ToString() << std::endl;
@@ -110,7 +104,7 @@ void runWorkload(Options& op, WriteOptions& write_op, ReadOptions& read_op) {
             break;
 
         case 'Q': // probe: point query
-            workload_file >> key;
+            iss >> key;
             s = db->Get(read_op, std::to_string(key), &value);
             //if (!s.ok()) std::cerr << s.ToString() << "key = " << key << std::endl;
             // assert(s.ok());
@@ -118,7 +112,7 @@ void runWorkload(Options& op, WriteOptions& write_op, ReadOptions& read_op) {
             break;
 
         case 'S': // scan: range query
-            workload_file >> start_key >> end_key;
+            iss >> start_key >> end_key;
             it->Refresh();
             assert(it->status().ok());
             for (it->Seek(std::to_string(start_key)); it->Valid(); it->Next()) {
