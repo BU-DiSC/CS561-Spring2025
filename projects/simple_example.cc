@@ -89,35 +89,40 @@ void runWorkload(Options& op, WriteOptions& write_op, ReadOptions& read_op) {
         char instruction;
         std::istringstream iss(line);
         iss >> instruction;
-        long key, start_key, end_key;
-        std::string value;
+        std::string key, start_key, end_key, value;
 
         switch (instruction)
         {
         case 'I': // insert
-            iss >> key >> value;
+            if (!(iss >> key >> value)) { 
+                std::cerr << "Invalid insert format: " << line << std::endl;
+                continue;
+            }
             // Put key-value
-            s = db->Put(write_op, std::to_string(key), value);
+            s = db->Put(write_op, key, value);
             if (!s.ok()) std::cerr << s.ToString() << std::endl;
             assert(s.ok());
             counter++;
             break;
 
         case 'Q': // probe: point query
-            iss >> key;
-            s = db->Get(read_op, std::to_string(key), &value);
-            //if (!s.ok()) std::cerr << s.ToString() << "key = " << key << std::endl;
-            // assert(s.ok());
+            if (!(iss >> key)) { 
+                std::cerr << "Invalid query format: " << line << std::endl;
+                continue;
+            }
+            s = db->Get(read_op, key, &value); 
             counter++;
             break;
 
         case 'S': // scan: range query
-            iss >> start_key >> end_key;
+            if (!(iss >> start_key >> end_key)) {
+                std::cerr << "Invalid scan format: " << line << std::endl;
+                continue;
+            }
             it->Refresh();
             assert(it->status().ok());
-            for (it->Seek(std::to_string(start_key)); it->Valid(); it->Next()) {
-                //std::cout << "found key = " << it->key().ToString() << std::endl;
-                if (it->key().ToString() == std::to_string(end_key)) {
+            for (it->Seek(start_key); it->Valid(); it->Next()) { 
+                if (it->key().ToString() == end_key) {
                     break;
                 }
             }
