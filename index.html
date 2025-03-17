@@ -881,9 +881,10 @@
                         <h4>Readings</h4>
                         <ul class="mylist">
                             <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class15.pdf">Slides</a> </li>
+                            <li><a href="https://dl.acm.org/doi/pdf/10.1145/3688351.3689160">Exploring I/O Management Performance in ZNS with ConfZNS++</a> SYSTOR 2014 (<strong>Paper for TQ</strong>)</li>
+                            <li class="tech-question"><font color="#cc0000"><strong>Technical Question <script type="text/javascript">document.write("T"+(techq++)); </script>:</strong></font> <em class="tech-question-text">Estimate the latency of executing a zone finish command if the zone capacity is 8192 KiB, the page size is 16 KiB, and the zone occupancy is 25%. The SSD has finish granularity of 16 KiB, and a page write latency of 600 microseconds. How will latency change if finish granularity is 64 KiB? </em> </li>
                             <li><a href="https://www.usenix.org/system/files/atc21-bjorling.pdf">ZNS: Avoiding the Block Interface Tax for Flash-based SSDs</a>, USENIX 2021</li>
                             <li><a href="https://download.semiconductor.samsung.com/resources/white-paper/FDP_Whitepaper_102423_Final.pdf">Introduction to Flexible Data Placement: A New Era of Optimized Data Management</a> </li>
-                            <li><a href="https://www.usenix.org/system/files/conference/hotstorage14/hotstorage14-paper-kang.pdf">The Multi-stream Solid-State Drive</a> Hotstorage 2014</li>
                             <li><a href="https://semiconductor.samsung.com/news-events/tech-blog/a-brief-history-of-data-placement-technologies/">A Brief History of Data Placement Technologies</a></li>
                         </ul>
                     </p>
@@ -904,13 +905,14 @@
                         </script>
                     </p>
                     <h4>Readings</h4>
-                    <ul class="mylist">
+                    <ul class="mylist"> 
                         <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class16.pdf">Slides </a> </li>
                         <!-- <li><strong>(P)</strong> <a href="https://dl.acm.org/doi/10.1145/3318464.3389705">Pump Up the Volume: Processing Large Data on GPUs with Fast Interconnects </a>, SIGMOD 2020 [<a href="https://www.youtube.com/watch?v=HAFBkNLGOhI">conf. talk</a>, <a href="https://www.youtube.com/watch?v=fRaH4h7-45s">long talk</a>]</li>
                         <li class="tech-question"><strong>Technical Question:</strong> <em>
                             TBA
                        </em></li> -->
-                       <li><a href="https://cs-people.bu.edu/mathan/publications/icde23-papon.pdf">ACEing the Bufferpool Management Paradigm for Modern Storage Devices</a>, ICDE 2023</li>
+                       <li><a href="https://cs-people.bu.edu/mathan/publications/icde23-papon.pdf">ACEing the Bufferpool Management Paradigm for Modern Storage Devices</a>, ICDE 2023 (<strong>Paper for TQ</strong>)</li>
+                       <li class="tech-question"><font color="#cc0000"><strong>Technical Question <script type="text/javascript">document.write("T"+(techq++)); </script>:</strong></font> <em class="tech-question-text">Consider you have three SSDs with the following asymmetry values: (i) α = 2.0, (ii) α = 4.0, (iii) α = 6.0. Your workload contains 50% writes with a predictive pattern. If all devices have the same concurrency values, which device will have the highest speedup after implementing ACE bufferpool and why? Also, will you use any prefetcher? Justify your answer.</em> </li>
                        <!-- <li class="tech-question">
                           <font color="#cc0000"><strong>Technical Question <script type="text/javascript">document.write("T"+(techq++)); </script>:</strong></font> <em class="tech-question-text"> Consider you have three SSDs with the following asymmetry values: (i) &#945; = 2.0, (ii) &#945; = 4.0, (iii) &#945; = 6.0. Your workload contains 50% writes with a predictive pattern.
                     If all devices have the same concurrency values, which device will have the highest speedup after implementing ACE bufferpool and why? Also, will you use any prefetcher? Justify your answer.</em> </li> -->
