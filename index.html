@@ -851,7 +851,7 @@
 
                         <h4>Readings</h4>
                         <ul class="mylist">
-                            <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class14.pdf">Slides</a> </li>
+                            <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class16.pdf">Slides</a> </li>
                             <li><a href="http://cs-people.bu.edu/mathan/publications/damon21-papon.pdf">A Parametric I/O Model for Modern Storage Devices</a>, DaMon 2021 (<strong>Paper for TQ</strong>) </li>
                             <li class="tech-question"><font color="#cc0000"><strong>Technical Question <script type="text/javascript">document.write("T"+(techq++)); </script>:</strong></font> <em class="tech-question-text">What would be the speedup of the application with batchable reads and unbatchable writes, given that the workload has 60% reads and the SSD has a read concurrency of 8 and an asymmetry of 4. How would the speedup change if the asymmetry was 1?</em> </li>
                             <li><a href="https://dl.acm.org/doi/10.1145/1989323.1989455" target="_blank">Data Management Over Flash Memory</a>, SIGMOD 2011 </li>
@@ -991,7 +991,7 @@
                         Class
                         <script type="text/javascript">
                             document.write(cday + 1)
-                        </script>: Guest Lecture: <a style="color:#0048AA" href="" target="_blank">Google's Spanner Database</a>
+                        </script>: Guest Lecture on "Google's Spanner Database", by <a style="color:#0048AA" href="https://www.linkedin.com/in/ben-vandiver-8926b71/" target="_blank">Ben Vandiver</a>
                     </h3>
                     <p class="post-meta">
                         <script type="text/javascript">
@@ -999,11 +999,19 @@
                             cday++;
                         </script>
                     </p>
-                    <ul class="mylist">
-                        <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class19.pdf">Slides</a> </li>
-                        <li><a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46103.pdf">Spanner: Becoming a SQL System</a>, SIGMOD 2017</li>
-                        <li><a href="https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf">Spanner: Google’s Globally-Distributed Database</a>, OSDI 2012</li>
-                    </ul>
+                    <p class="post-content">
+                        <strong>Abstract: </strong> Spanner is Google's global scale database that underlies many of the core systems at Google.  Think GMail, Photos, YouTube metadata, Ads.    Spanner is built to meet the demanding needs of these applications: over 15 Exabytes of data under storage and over 2B QPS at peak. Additionally, Spanner must be highly reliable and compliant with a variety of regulations.  I'll talk about some of the core design decisions and the architecture that resulted.  Finally, I'll give some color commentary about the software engineering practices necessary to build databases like Spanner.
+                    </p>
+                    <p class="post-content">
+                        <strong>Bio: </strong> Ben Vandiver (MIT PhD '08) is one of the lead engineers on Google's Spanner development team.  For the last 6 years, he's been working to "make Spanner less weird" to its Cloud and internal customers.  Prior to joining Google, Ben was the CTO for Vertica, a pioneering columnar database company of Mike Stonebraker lineage.  Ben has written code for almost every area of database implementation at some point, some of it even bug-free.  When not hacking on databases, Ben enjoys hanging out with his kids and sword fighting.
+                    </p>
+                    <p class="post-content"></p>
+                        <h4>Readings</h4>
+                        <ul class="mylist">
+                            <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class19.pdf">Slides</a> </li>
+                            <li><a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46103.pdf">Spanner: Becoming a SQL System</a>, SIGMOD 2017</li>
+                            <li><a href="https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf">Spanner: Google’s Globally-Distributed Database</a>, OSDI 2012</li>
+                        </ul>
                     </p>
 
 
@@ -1047,18 +1055,26 @@
                         Class
                         <script type="text/javascript">
                             document.write(cday + 1)
-                        </script>: Guest lecture on OSDB: <a style="color:#0048AA" href="" target="_blank">George Neville-Neil</a>
-                    </h3>
+                        </script>: Guest lecture on "OSDB: Exposing the Operating System’s Inner Database", by <a style="color:#0048AA" href="https://www.linkedin.com/in/george-neville-neil-8a1485211/" target="_blank">George Neville-Neil</a>
+                    </h3>                    
                     <p class="post-meta">
                         <script type="text/javascript">
                             document.write(classDay(rday + cday + cancelday));
                             cday++;
                         </script>
                     </p>
-                    <ul class="mylist">
-                        <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class21.pdf">Slides</a> </li>
-                        <li><a href="https://vldb.org/cidrdb/papers/2025/p30-soule.pdf">OSDB: Exposing the Operating System's Inner Database</a>, CIDR 2025</li>
-                    </ul>
+                    <p class="post-content">
+                        <strong>Abstract: </strong> Operating systems must provide functionality that closely resembles that of a data management system, but existing query mechanisms are ad-hoc and idiosyncratic. To address this problem, we argue for the adoption of a relational interface to the operating system kernel. While prior work has made similar proposals, our approach is unique in that it allows for incremental adoption over an existing, production-ready operating system. In this paper, we present progress on a prototype system called OSDB that embodies the incremental approach and discuss key aspects of the design, including the data model and concurrency control mechanisms. We present four example use cases: a network usage monitor, a load balancer, file system checker, and network debugging session, as well as experiments that demonstrate the low overhead for our approach.
+                    </p>
+                    <p class="post-content">
+                        <strong>Bio: </strong> George V. Neville-Neil, works on networking and operating system code for fun and profit. His areas of interest are computer security, operating systems, networking, time protocols, and the care and feeding of large code bases. He is the author of The Kollected Kode Vicious and co-author with Marshall Kirk McKusick and Robert N. M. Watson of The Design and Implementation of the FreeBSD Operating System. For nearly twenty years he has been the columnist better known as Kode Vicious. Since 2014 he has been an Industrial Visitor at the University of Cambridge where he is involved in several projects relating to computer security. He earned his bachelor’s degree in computer science at Northeastern University in Boston, Massachusetts, and is a member of ACM, the Usenix Association, and IEEE. His software not only runs on Earth but has been deployed, as part of VxWorks in NASA’s missions to Mars. He is an avid bicyclist and traveler who currently lives in New York City. He is currently a PhD student at Yale University working with Robert Soulé, Avi Silberschatz and Peter Alvaro.
+                    </p>
+                    <p class="post-content"></p>
+                        <h4>Readings</h4>
+                        <ul class="mylist">
+                            <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class21.pdf">Slides</a> </li>
+                            <li><a href="https://vldb.org/cidrdb/papers/2025/p30-soule.pdf">OSDB: Exposing the Operating System's Inner Database</a>, CIDR 2025</li>
+                        </ul>
                     </p>
                                         
 
@@ -1099,7 +1115,7 @@
                         Class
                         <script type="text/javascript">
                             document.write(cday + 1)
-                        </script>: Guest lecture on cloud data Lakes: <a style="color:#0048AA" href="https://www.influxdata.com/blog/author/andrew-lamb/" target="_blank">Andrew Lamb</a>
+                        </script>: Guest lecture on "Cloud Data Lakes", by <a style="color:#0048AA" href="http://andrew.nerdnetworks.org/" target="_blank">Andrew Lamb</a>
                     </h3>
                     <p class="post-meta">
                         <script type="text/javascript">
@@ -1107,13 +1123,21 @@
                             cday++;
                         </script>
                     </p>
-                    <ul class="mylist">
-                        <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class23.pdf">Slides</a> </li>
-                        <li><a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">Lakehouse: A New Generation of Open Platforms that Unify
-                            Data Warehousing and Advanced Analytics</a>, CIDR 2021</li>
-                        <li><a href="https://www.vldb.org/pvldb/vol13/p3411-armbrust.pdf">Delta Lake: High-Performance ACID Table Storage over
-                            Cloud Object Stores</a>, VLDB 2020</li>
-                    </ul>
+                    <p class="post-content">
+                        <strong>Abstract: </strong> In this talk, Andrew will review the architecture of recent cloud analytic database systems, the trends driving these architectures (e.g. cheap durable Object Storage, elastic compute), the common features in such systems (disaggregated storage, caching layers, metadata stores).
+                    </p>
+                    <p class="post-content">
+                        <strong>Bio: </strong> Andrew currently works in Rust on InfluxDB 3.0, focused on query processing, the Apache DataFusion query engine and the Apache Arrow ecosystem. He serves on the Apache DataFusion PMC (2024 Chair), and on the Apache Arrow PMC (2023 Chair), and actively contributes to the Apache Arrow DataFusion query engine and the Apache Arrow Rust implementation. He earned a BS and MEng in Course VI from MIT. More details are available at http://andrew.nerdnetworks.org/
+                    </p>
+                    <p class="post-content"></p>
+                        <h4>Readings</h4>
+                        <ul class="mylist">
+                            <li><a target="_blank" style="font-size:18px; text-decoration: underline;" tabindex="-1" href="./slides/CAS-CS561-Class23.pdf">Slides</a> </li>
+                            <li><a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">Lakehouse: A New Generation of Open Platforms that Unify
+                                Data Warehousing and Advanced Analytics</a>, CIDR 2021</li>
+                            <li><a href="https://www.vldb.org/pvldb/vol13/p3411-armbrust.pdf">Delta Lake: High-Performance ACID Table Storage over
+                                Cloud Object Stores</a>, VLDB 2020</li>
+                        </ul>
                     </p>
 
 
